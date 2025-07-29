@@ -1,4 +1,7 @@
-import React from 'react';
+/**
+ * Components
+ */
+import Navbar from './Navbar';
 
 function Header() {
 
@@ -39,13 +42,13 @@ function Header() {
 
             </button>
 
-            Navbar
+            <Navbar />
 
           </div>
 
           <a 
             href='#contact' 
-            className=''
+            className='btn btn-secondary max-md:hidden md:justify-self-end'
           >
             Contact Me
           </a>
