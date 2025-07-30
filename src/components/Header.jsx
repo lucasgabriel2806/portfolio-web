@@ -1,9 +1,16 @@
 /**
+ * Node modules
+ */
+import { useState } from 'react';
+
+/**
  * Components
  */
 import Navbar from './Navbar';
 
 function Header() {
+
+  const [navOpen, setNavOpen] = useState(false);
 
   return (
 
@@ -33,16 +40,16 @@ function Header() {
 
             <button
             className='menu-btn md:hidden'
-            onClick={null}
+            onClick={() => setNavOpen((prev) => !prev)}
             >
 
               <span class='material-symbols-rounded'>
-                menu
+                {navOpen ? 'close' : 'menu'}
               </span>
 
             </button>
 
-            <Navbar />
+            <Navbar navOpen={navOpen} />
 
           </div>
 

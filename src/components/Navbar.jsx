@@ -1,14 +1,19 @@
 /**
  * Node modules
  */
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 function Navbar({ navOpen }) {
 
   const lastActiveLink = useRef();
-
   const activeBox = useRef();   
+
+  const initActiveBox = () => {
+    console.log(lastActiveLink.current)
+  }
+
+  useEffect(initActiveBox, []);
 
   const navItems = [
     {
@@ -42,7 +47,7 @@ function Navbar({ navOpen }) {
 
   return (
 
-    <nav className={'navbar ' + navOpen ? 'active' : ''}>
+    <nav className={'navbar ' + (navOpen ? 'active' : '')}>
 
         {
             navItems.map(({ label, link, className, ref }, key) => (
@@ -71,6 +76,10 @@ function Navbar({ navOpen }) {
 
   )
 
+}
+
+Navbar.propTypes = {
+  navOpen: PropTypes.bool.isRequired
 }
 
 export default Navbar;
